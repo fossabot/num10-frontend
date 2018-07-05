@@ -1,15 +1,29 @@
 import { h, app } from "hyperapp";
-import { location, Route } from "@hyperapp/router";
+import { Route, Switch, Redirect, location } from "@hyperapp/router";
+import styles from "./styles/global";
 import state from "./state";
 import actions from "./actions";
-import Login from "./components/Login"
-import styles from "./styles/global";
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import Page404 from "./components/Page404";
 
-const Home = () => <h2>Home</h2>;
+const PrivateRoute = () => {
+  return localStorage.getItem("access_token") ? (
+    <Route path="/" render={Dashboard} />
+  ) : (
+    <Redirect to="/login" />
+  );
+};
 
 const view = (state, actions) => (
   <div id="container">
-    <Route render={Login} />
+    <Switch>
+      <Route path="/404" render={Page404} />
+      <Route path="/login" render={Login} />
+      <PrivateRoute />
+      <Route path="/" render={Dashboard} />
+      <Redirect to="/404" />
+    </Switch>
   </div>
 );
 

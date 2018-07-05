@@ -7,13 +7,15 @@ const style = css`
 
   img[alt="Logo"] {
     width: 250px;
-    margin-top: 5em;
+    margin-top: 2.5em;
   }
 
   button {
-    border: none;
-    font-weight: bold;
-    background: white;
+    margin-top: 30px;
+
+    i {
+      margin-right: 10px;
+    }
   }
 `;
 
@@ -23,7 +25,9 @@ const Login = () => (
       <img src={logoNum10} alt="Logo" />
     </div>
     <div class="sign-in">
-      <button>Sign in with Google</button>
+      <button>
+        <i class="fab fa-google" />Sign in with Google
+      </button>
     </div>
   </div>
 );
