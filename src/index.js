@@ -11,7 +11,7 @@ const PrivateRoute = () => {
   return localStorage.getItem("access_token") ? (
     <Route path="/" render={Dashboard} />
   ) : (
-    <Redirect to="/login" />
+    <Redirect to="/#/login" />
   );
 };
 
