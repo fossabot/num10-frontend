@@ -6,15 +6,15 @@ import actions from "./actions";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
 
-const PrivateRoute = (props) => {
+const PrivateRoute = props => {
   console.log(props);
-  console.log(props.isAuthenticated);
-  <Route
-    {...props}
-    render={props =>
-      props.isAuthenticated ? <props.component {...props} /> : <Redirect to="/login" />
-    }
-  />;
+  return (
+    <Route
+      render={(props) =>
+        props.isAuthenticated ? <Login {...props} /> : <Redirect to="/login" />
+      }
+    />
+  );
 };
 
 const view = (state, actions) => (
@@ -22,8 +22,6 @@ const view = (state, actions) => (
     <Switch>
       <Route path="/login" render={Login} />
       <PrivateRoute
-        path="/login"
-        component={Login}
         isAuthenticated={state.authenticated}
         authenticate={actions.authenticate}
       />

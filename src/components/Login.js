@@ -21,7 +21,6 @@ const style = css`
 
 const Login = (props) => (
   <div class={style}>
-    {console.log(props)}
     <div class="logo">
       <img src={logoNum10} alt="Logo" />
     </div>
