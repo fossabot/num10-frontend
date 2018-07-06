@@ -9,7 +9,7 @@ import Page404 from "./components/Page404";
 
 const PrivateRoute = () => {
   return localStorage.getItem("access_token") ? (
-    <Route path="/" render={Dashboard} />
+    <Route path="/#" render={Dashboard} />
   ) : (
     <Redirect to="/#/login" />
   );
@@ -21,7 +21,7 @@ const view = (state, actions) => (
       <Route path="/#/404" render={Page404} />
       <Route path="/#/login" render={Login} />
       <PrivateRoute />
-      <Route path="/" render={Dashboard} />
+      <Route path="/#" render={Dashboard} />
       <Redirect to="/#/404" />
     </Switch>
   </div>
