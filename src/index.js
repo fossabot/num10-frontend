@@ -18,11 +18,11 @@ const PrivateRoute = () => {
 const view = (state, actions) => (
   <div id="container">
     <Switch>
-      <Route path="/404" render={Page404} />
-      <Route path="/login" render={Login} />
+      <Route path="/#/404" render={Page404} />
+      <Route path="/#/login" render={Login} />
       <PrivateRoute />
       <Route path="/" render={Dashboard} />
-      <Redirect to="/404" />
+      <Redirect to="/#/404" />
     </Switch>
   </div>
 );
