@@ -5,22 +5,29 @@ import state from "./state";
 import actions from "./actions";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import Page404 from "./components/Page404";
 
-const PrivateRoute = () => {
-  return localStorage.getItem("access_token") ? (
-    <Route path="/" render={Dashboard} />
-  ) : (
-    <Redirect to="/login" />
-  );
+const PrivateRoute = (props) => {
+  console.log(props);
+  console.log(props.isAuthenticated);
+  <Route
+    {...props}
+    render={props =>
+      props.isAuthenticated ? <props.component {...props} /> : <Redirect to="/login" />
+    }
+  />;
 };
 
 const view = (state, actions) => (
   <div id="container">
     <Switch>
-      <Route path="/" render={Dashboard} />
       <Route path="/login" render={Login} />
-      <PrivateRoute />
+      <PrivateRoute
+        path="/login"
+        component={Login}
+        isAuthenticated={state.authenticated}
+        authenticate={actions.authenticate}
+      />
+      <Route path="/" render={Dashboard} />
       <Redirect to="/" />
     </Switch>
   </div>

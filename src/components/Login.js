@@ -19,13 +19,14 @@ const style = css`
   }
 `;
 
-const Login = () => (
+const Login = (props) => (
   <div class={style}>
+    {console.log(props)}
     <div class="logo">
       <img src={logoNum10} alt="Logo" />
     </div>
     <div class="sign-in">
-      <button>
+      <button onclick={() => props.authenticate(true)}>
         <i class="fab fa-google" />Sign in with Google
       </button>
     </div>

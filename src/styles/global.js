@@ -11,9 +11,9 @@ const styles = injectGlobal`
     --button-border: 1px solid var(--main-color);
     --button-fontsize: 15px;
     --button-fontweight: bold;
-    --button-color-hover: white;
+    --button-color: white;
     --button-background: white;
-    --button-background-hover: var(--main-color);
+    --button-background-hover: rgb(188, 120, 16);
     --button-background-active: rgb(188, 120, 16);
     --cursor: pointer
   }
@@ -28,7 +28,8 @@ const styles = injectGlobal`
     box-shadow: var(--box-shadow);
     border: var(--button-border);
     border-radius: var(--border-radius);
-    background: var(--button-background);
+    background: var(--main-color);
+    color: var(--button-color);
     font-size: var(--button-fontsize);
     font-weight: var(--button-fontweight);
   }
@@ -36,12 +37,16 @@ const styles = injectGlobal`
   button:hover {
     cursor: var(--cursor);
     background: var(--button-background-hover);
-    color: var(--button-color-hover);
+    color: var(--button-color);
+
+    @media screen and (max-width: 600px) {
+      background: var(--main-color);
+    }
   }
 
   button:active {
     background: var(--button-background-active);
-    color: var(--button-color-hover)
+    color: var(--button-color)
   }
 `;
 
