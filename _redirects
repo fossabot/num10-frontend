@@ -1,2 +1,5 @@
 # Redirects from what the browser requests to what we serve
-/a  /
+/a      /
+/login  /login
+/home   /
+/404    /404
