@@ -19,17 +19,25 @@ const style = css`
   }
 `;
 
-const Login = (props) => (
-  <div class={style}>
-    <div class="logo">
-      <img src={logoNum10} alt="Logo" />
+const login = actions => {
+  localStorage.setItem("access_token", "abc");
+};
+
+const Login = props => {
+  const actions = props.actions;
+
+  return (
+    <div class={style}>
+      <div class="logo">
+        <img src={logoNum10} alt="Logo" />
+      </div>
+      <div class="sign-in">
+        <button onclick={() => login(actions)}>
+          <i class="fab fa-google" />Sign in with Google
+        </button>
+      </div>
     </div>
-    <div class="sign-in">
-      <button onclick={() => props.authenticate(true)}>
-        <i class="fab fa-google" />Sign in with Google
-      </button>
-    </div>
-  </div>
-);
+  );
+};
 
 export default Login;
