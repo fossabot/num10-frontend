@@ -14,7 +14,7 @@ const PrivateRoute = ({isAuthenticated}) => {
   );
 };
 
-const LoginComponent = actions => props => <Login actions={actions} />;
+const LoginComponent = actions => props => <Login actions={actions} state={state}/>;
 
 const view = (state, actions) => (
   <div id="container">
